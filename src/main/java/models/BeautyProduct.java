@@ -4,8 +4,9 @@ public class BeautyProduct extends Stock {
 
     private BeautyUse beautyUse;
 
-    public BeautyProduct(int quantity, int price) {
-        super(quantity, price);
+    public BeautyProduct(String name, int quantity, double price, BeautyUse beautyuse) {
+        super(name, quantity, price);
+        this.beautyUse = beautyuse;
     }
 
     public BeautyUse getBeautyUse() {

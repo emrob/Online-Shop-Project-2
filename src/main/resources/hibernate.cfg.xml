@@ -17,7 +17,8 @@
         <mapping class = "models.Basket"/>
         <mapping class= "models.Brand"/>
         <mapping class = "models.Customer"/>
-        <mapping class="models.HealthProduct"/>
+        <mapping class="models.BeautyProduct"/>
         <mapping class="models.Stock"/>
+        <mapping class="models.BeautyUse"/>
     </session-factory>
 </hibernate-configuration>

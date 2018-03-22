@@ -6,5 +6,6 @@ public enum BeautyUse {
     Lipcare,
     Bath,
     MakeUp,
+    Fragrance
 
 }

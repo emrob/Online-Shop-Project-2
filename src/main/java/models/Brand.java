@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name="brands")
 public class Brand {
 
     private int id;
@@ -15,6 +18,9 @@ public class Brand {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -23,6 +29,7 @@ public class Brand {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -31,6 +38,7 @@ public class Brand {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "brand")
     public Set<BeautyProduct> getProducts() {
         return products;
     }

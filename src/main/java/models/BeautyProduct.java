@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="beauty_product")
 public class BeautyProduct extends Stock {
 
     private BeautyUse beautyUse;
@@ -12,6 +16,7 @@ public class BeautyProduct extends Stock {
 
     }
 
+    @Column(name="beauty_use")
     public BeautyUse getBeautyUse() {
         return beautyUse;
     }
@@ -20,6 +25,8 @@ public class BeautyProduct extends Stock {
         this.beautyUse = beautyUse;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "brand_id", nullable = false)
     public Brand getBrand() {
         return brand;
     }

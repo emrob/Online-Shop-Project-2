@@ -1,5 +1,7 @@
 package db;
 
+import models.BeautyProduct;
+import models.Brand;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -107,6 +109,30 @@ public class DBHelper {
         }
         System.out.println(result);
         return result;
+    }
+
+    private static <T> List<T> getList(Criteria cr) {
+        List<T> results = null;
+        try {
+            transaction = session.beginTransaction();
+            results = cr.list();
+            transaction.commit();
+        } catch(HibernateException ex) {
+            transaction.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
+    public static List<BeautyProduct> getProductsByBrand(Brand brand){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<BeautyProduct> results = null;
+        Criteria cr = session.createCriteria(BeautyProduct.class);
+        cr.add(Restrictions.eq("brand", brand));
+        results = getList(cr);
+        return results;
     }
 
 

@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Stock {
 
     private int id;
@@ -7,12 +11,18 @@ public abstract class Stock {
     private int quantity;
     private double price;
 
+    public Stock() {
+    }
+
     public Stock(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name= "id")
     public int getId() {
         return id;
     }
@@ -21,6 +31,7 @@ public abstract class Stock {
         this.id = id;
     }
 
+    @Column(name="product_name")
     public String getName() {
         return name;
     }
@@ -29,6 +40,7 @@ public abstract class Stock {
         this.name = name;
     }
 
+    @Column(name="price")
     public double getPrice() {
         return price;
     }
@@ -37,6 +49,7 @@ public abstract class Stock {
         this.price = price;
     }
 
+    @Column(name="quantity")
     public int getQuantity() {
         return quantity;
     }

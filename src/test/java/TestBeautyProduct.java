@@ -1,6 +1,7 @@
 import db.DBHelper;
 import models.BeautyProduct;
 import models.BeautyUse;
+import models.Brand;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +10,13 @@ import static junit.framework.Assert.assertEquals;
 public class TestBeautyProduct {
 
     BeautyProduct beautyProduct;
+    Brand brand;
 
 
     @Before
     public void before(){
-        beautyProduct = new BeautyProduct("Mascara",100,5.99,BeautyUse.MakeUp);
+        brand = new Brand("Inika");
+        beautyProduct = new BeautyProduct("Mascara",100,5.99,BeautyUse.MakeUp, brand);
 
     }
 
@@ -40,6 +43,11 @@ public class TestBeautyProduct {
     @Test
     public void canGetAvailability(){
         assertEquals("In stock", beautyProduct.checkAvailability());
+    }
+
+    @Test
+    public void checkBrand(){
+        assertEquals("Inika", beautyProduct.getBrand().getName());
     }
 }
 

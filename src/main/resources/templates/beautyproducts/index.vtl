@@ -8,6 +8,15 @@
         <th>Price:</th>
         <th>Use:</th>
         <th>Brand</th>
+        <th></th>
+    </tr>
+    #foreach($beautyProduct in $beautyproducts)
+    <tr>
+        <td>$beautyProduct.getName</td>
+        <td>$beautyProduct.getQuantity</td>
+        <td>$beautyProduct.getPrice</td>
+        <td>$beautyProduct.getBeautyUse</td>
+        <td>$beautyProduct.getBrand</td>
     </tr>
 </table>
 

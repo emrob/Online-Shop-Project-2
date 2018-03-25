@@ -22,3 +22,4 @@
         <mapping class="models.BeautyUse"/>
     </session-factory>
 </hibernate-configuration>
+
